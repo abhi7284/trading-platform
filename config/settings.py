@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     redis_port: int
 
     jwt_secret: str
-    jwt_algorithm: str
+    # jwt_algorithm: str
+    jwt_algorithm: str = "HS256"
 
     upstox_api_key: str
     upstox_api_secret: str
