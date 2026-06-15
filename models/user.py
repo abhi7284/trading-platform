@@ -8,27 +8,18 @@ from sqlalchemy.orm import relationship
 from database.base import Base
 
 
-
 class User(Base):
 
     __tablename__ = "users"
 
     id: Mapped[str] = mapped_column(
-        String,
-        primary_key=True,
-        default=lambda: str(uuid4())
+        String, primary_key=True, default=lambda: str(uuid4())
     )
 
     name: Mapped[str]
 
-    email: Mapped[str] = mapped_column(
-        String,
-        unique=True
-    )
+    email: Mapped[str] = mapped_column(String, unique=True)
 
     password_hash: Mapped[str]
 
-    broker_accounts = relationship(
-        "BrokerAccount",
-        back_populates="user"
-    )
+    broker_accounts = relationship("BrokerAccount", back_populates="user")
